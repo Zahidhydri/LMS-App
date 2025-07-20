@@ -18,7 +18,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
-app.use(cors({ origin: [process.env.CLIENT_URL], credentials: true }));
+
+const allowedOrigins = [
+  "http://localhost:3000",                  // Dev frontend
+  process.env.CLIENT_URL                    // Prod frontend (from .env)
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
 
 app.use('/api/v1/user', userRoutes); 

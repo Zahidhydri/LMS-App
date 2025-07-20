@@ -1,9 +1,10 @@
-
-📚 Learning Management System (LMS) – MERN Stack
+📚 **Learning Management System (LMS) – MERN Stack**
 
 A full-featured Learning Management System (LMS) built with the MERN Stack (MongoDB, Express.js, React.js, Node.js). This platform enables users to browse, enroll in, and manage courses with integrated features like video streaming, user authentication, payment processing, and more.
 
-🚀 Features
+---
+
+🚀 **Features**
 - 👨‍🏫 Instructor dashboard to upload and manage courses
 - 🎓 Student dashboard with enrolled courses & progress tracking
 - 🔐 Authentication with JWT (Login/Register/Logout)
@@ -13,14 +14,16 @@ A full-featured Learning Management System (LMS) built with the MERN Stack (Mong
 - 📊 Admin dashboard to manage users and content
 - 📨 Email notifications using SMTP
 
-🛠 Tech Stack
+---
 
-Frontend:
+🛠 **Tech Stack**
+
+**Frontend:**
 - React.js
 - Redux / Context API
 - TailwindCSS / Styled Components
 
-Backend:
+**Backend:**
 - Node.js
 - Express.js
 - MongoDB with Mongoose
@@ -28,7 +31,10 @@ Backend:
 - Razorpay / PayPal (for payments)
 - Nodemailer (for emails)
 
-📦 Folder Structure
+---
+
+📦 **Folder Structure**
+```
 LMS/
 ├── client/                 # React frontend
 │   ├── src/
@@ -40,18 +46,26 @@ LMS/
 │   └── ...
 ├── README.md
 └── .gitignore
+```
 
-⚙️ Getting Started
+---
+
+⚙️ **Getting Started**
 
 1. Clone the repo
-$ git remote add origin https://github.com/Zahidhydri/LMS-App.git
-$ cd LMS-App
+```bash
+git remote add origin https://github.com/Zahidhydri/LMS-App.git
+cd LMS-App
+```
 
 2. Setup Backend
-$ cd server
-$ npm install
+```bash
+cd server
+npm install
+```
 
 Create a `.env` file inside `/server` with the following:
+```env
 PORT=5000
 MONGO_URI=your_mongo_connection
 JWT_SECRET=your_secret_key
@@ -60,24 +74,35 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 SMTP_USER=your_email
 SMTP_PASS=your_email_password
+```
 
 Start the backend:
-$ npm run dev
+```bash
+npm run dev
+```
 
 3. Setup Frontend
-$ cd ../client
-$ npm install
-$ npm start
+```bash
+cd ../client
+npm install
+npm start
+```
 
-✅ To-Do
+---
+
+✅ **To-Do**
 - [ ] Add course quizzes & certificates
 - [ ] Enable video previews
 - [ ] Implement student reviews
 - [ ] Add real-time notifications
 
-🧑‍💻 Author
-Zahid Sadique Hydri
+---
+
+🧑‍💻 **Author**
+**Zahid Sadique Hydri**  
 Computer Science Engineering Student | Software Developer
 
-📄 License
+---
+
+📄 **License**
 This project is licensed under the MIT License.

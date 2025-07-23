@@ -36,10 +36,10 @@ A full-featured Learning Management System (LMS) built with the MERN Stack (Mong
 📦 **Folder Structure**
 ```
 LMS/
-├── client/                 # React frontend
+├── frontend/                 # React frontend
 │   ├── src/
 │   └── ...
-├── server/                 # Node.js backend
+├── backend/                 # Node.js backend
 │   ├── models/
 │   ├── routes/
 │   ├── controllers/
@@ -60,11 +60,11 @@ cd LMS-App
 
 2. Setup Backend
 ```bash
-cd server
+cd backend
 npm install
 ```
 
-Create a `.env` file inside `/server` with the following:
+Create a `.env` file inside `/backend` with the following:
 ```env
 PORT=5000
 MONGO_URI=your_mongo_connection
@@ -83,7 +83,7 @@ npm run dev
 
 3. Setup Frontend
 ```bash
-cd ../client
+cd ../frontend
 npm install
 npm start
 ```

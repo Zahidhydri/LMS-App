@@ -83,6 +83,45 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+            {/* Additional Section: Why Choose Us */}
+      <section className="bg-white dark:bg-gray-950 py-16 px-6 md:px-16 border-t border-gray-200 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            Why Choose Our Platform?
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 text-lg mb-12">
+            Empowering learners with engaging content, real-world projects, and lifetime access.
+          </p>
+
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Feature 1 */}
+            <div className="p-6 bg-slate-100 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">🎓 Expert Instructors</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Learn from industry professionals with years of experience and insights.
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="p-6 bg-slate-100 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">📚 Curated Content</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Structured courses designed to take you from beginner to expert smoothly.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="p-6 bg-slate-100 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">💼 Career Ready Skills</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Gain practical, job-ready skills that boost your resume and confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </Layout>
   );
 }

@@ -82,137 +82,125 @@ export default function Profile() {
       name: userData?.fullName,
       userId: userData?._id,
     });
-  }, []);
+  }, [userData]);
 
   return (
     <Layout hideFooter={true}>
-      <section className="flex flex-col gap-6 items-center py-8 px-3 min-h-[100vh]">
+      <section className="flex justify-center items-center py-12 min-h-screen bg-gradient-to-br from-white to-slate-100 dark:from-[#0f0f0f] dark:to-[#1a1a1a] text-gray-800 dark:text-white">
         <form
           autoComplete="off"
           noValidate
           onSubmit={onFormSubmit}
-          className="flex flex-col dark:bg-base-100 relative gap-7 rounded-lg md:py-10 py-7 md:px-7 px-3 md:w-[750px] w-full shadow-custom dark:shadow-xl  "
+          className="w-full max-w-2xl bg-white dark:bg-base-100 shadow-xl rounded-2xl px-6 py-8 space-y-8 relative"
         >
-          <div className="flex justify-center items-center">
-            <h1 className="text-center absolute left-6 md:top-auto top-5 text-violet-500 dark:text-purple-500 md:text-4xl text-3xl font-bold font-inter after:content-[' ']  after:absolute after:-bottom-3.5 after:left-0 after:h-1.5 after:w-[60%] after:rounded-full after:bg-yellow-400 dark:after:bg-yellow-600">
-              Profile
-            </h1>
-            {/* avatar */}
+          {/* Header */}
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-3xl font-bold font-inter text-violet-600 dark:text-purple-400">
+              Profile Settings
+            </h2>
+            <button
+              type="button"
+              onClick={() => setIsDialogOpen((prev) => !prev)}
+              className="text-gray-600 dark:text-gray-300 relative"
+              title="More"
+            >
+              <FiMoreVertical size={22} />
+              {isDialogOpen && (
+                <div className="absolute right-0 top-6 z-10 w-48 bg-white dark:bg-base-300 border dark:border-gray-600 rounded-lg shadow-md">
+                  <button
+                    onClick={() => navigate("change-password")}
+                    className="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 text-sm"
+                  >
+                    <IoIosLock /> Change Password
+                  </button>
+                  <button
+                    onClick={() => navigate("reset-password")}
+                    className="w-full px-4 py-2 text-left text-red-500 hover:bg-red-100 dark:hover:bg-red-800 dark:text-red-300 flex items-center gap-2 text-sm"
+                  >
+                    <IoIosRefresh /> Reset Password
+                  </button>
+                </div>
+              )}
+            </button>
+          </div>
+
+          {/* Avatar */}
+          <div className="flex justify-center">
             <div
-              className="w-16 h-16 rounded-full overflow-hidden self-center cursor-pointer"
+              className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-yellow-400 hover:shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
               onClick={() => avatarInputRef.current.click()}
             >
-              {userData?.avatar?.secure_url || userInput.previewImage ? (
+              {userInput.previewImage || userData?.avatar?.secure_url ? (
                 <img
-                  src={
-                    userInput.previewImage
-                      ? userInput.previewImage
-                      : userData?.avatar?.secure_url
-                  }
+                  src={userInput.previewImage || userData?.avatar?.secure_url}
                   alt="avatar"
-                  className="h-full w-full"
+                  className="w-full h-full object-cover"
                 />
               ) : (
-                <FaUserCircle className="h-full w-full" />
+                <FaUserCircle className="w-full h-full text-gray-400 dark:text-gray-600" />
               )}
               <input
                 type="file"
                 accept=".png, .jpeg, .jpg"
-                className="hidden"
                 ref={avatarInputRef}
+                className="hidden"
                 onChange={handleImageUpload}
               />
             </div>
-            {/* more options */}
-            <div className="absolute right-3 top-3">
-              <button
-                type="button"
-                className="absolute right-0 text-gray-500 dark:text-slate-50 font-inter font-[600]"
-                onClick={() => setIsDialogOpen((prev) => !prev)}
-              >
-                <FiMoreVertical size={20} />
-              </button>
-
-              <dialog
-                open={isDialogOpen}
-                className="bg-white dark:bg-base-300 transition-all duration-500 border-[1px] border-gray-200 dark:border-gray-500 rounded-s-xl rounded-ee-xl py-5 shadow-lg w-fit relative right-0 top-7"
-              >
-                <div className="w-full flex flex-col gap-2 items-start">
-                  <button
-                    className="text-gray-700 w-full flex items-center gap-2 dark:text-white px-3 pb-2 border-b-[1px] border-gray-300"
-                    onClick={() => navigate("change-password")}
-                  >
-                    <IoIosLock /> Change password
-                  </button>
-                  <button
-                    className="text-[#ff1414] dark:text-red-300 px-3 w-full flex items-center gap-2"
-                    onClick={() => navigate("reset-password")}
-                  >
-                    <IoIosRefresh /> Reset password
-                  </button>
-                </div>
-              </dialog>
-            </div>
           </div>
 
-          <div className="w-full flex  flex-wrap gap-6">
-            {/* name */}
+          {/* Form Fields */}
+          <div className="grid md:grid-cols-2 gap-6">
             <InputBox
-              label={"Name"}
+              label={"Full Name"}
               name={"name"}
               type={"text"}
-              placeholder={"Enter fullName"}
+              placeholder={"Enter full name"}
               value={userInput.name}
               onChange={(e) =>
                 setUserInput({ ...userInput, name: e.target.value })
               }
-              className="md:w-[48%] w-[100%]"
             />
-
-            {/* email */}
             <InputBox
               label={"Email"}
               name={"email"}
               type={"email"}
               value={userData?.email || ""}
-              className="md:w-[48%] w-[100%]"
               disabled={true}
             />
-            {/* role */}
             <InputBox
               label={"Role"}
               name={"role"}
               type={"text"}
-              value={userData?.role}
-              className="md:w-[48%] w-[100%]"
+              value={userData?.role || ""}
               disabled={true}
             />
-            {/* subscription */}
             <InputBox
               label={"Subscription"}
               name={"subscription"}
               type={"text"}
-              value={userData?.subscription?.status || "Not-Active"}
-              className="md:w-[48%] w-[100%]"
+              value={userData?.subscription?.status || "Not Active"}
               disabled={true}
             />
           </div>
-          {/* submit button */}
-          <div className="w-full flex md:flex-row flex-col md:justify-between justify-center md:gap-0 gap-3">
+
+          {/* Buttons */}
+          <div className="flex flex-col md:flex-row gap-4">
             <button
               type="submit"
-              className="py-3.5  rounded-md bg-yellow-500 mt-3 text-white font-inter   md:w-[48%] w-full"
+              className={`py-3 rounded-md bg-yellow-500 hover:bg-yellow-600 transition text-white font-semibold w-full ${
+                (!isChanged || isUpdating) && "opacity-50 cursor-not-allowed"
+              }`}
               disabled={!isChanged || isUpdating}
             >
-              {isUpdating ? "Saving Changes..." : "Save Changes"}
+              {isUpdating ? "Saving..." : "Save Changes"}
             </button>
 
-            {/* show cancel subscription btn if Active */}
             {userData?.subscription?.status === "active" && (
               <button
                 type="button"
                 onClick={handleCancelSubscription}
-                className="py-3.5 rounded-md bg-[#f32e2e] mt-3 text-white font-inter md:w-[48%] w-full"
+                className="py-3 rounded-md bg-red-500 hover:bg-red-600 transition text-white font-semibold w-full"
               >
                 Cancel Subscription
               </button>

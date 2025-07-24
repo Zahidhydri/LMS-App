@@ -108,6 +108,6 @@ Computer Science Engineering Student | Software Developer
 This project is licensed under the MIT License.
 
 
-{% comment %}
- git remote add origin https://github.com/Zahidhydri/LMS-App.git
-{% endcomment %}
+<!-- 
+git remote add origin https://github.com/Zahidhydri/LMS-App.git
+-->

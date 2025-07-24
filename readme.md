@@ -54,7 +54,8 @@ LMS/
 
 1. Clone the repo
 ```bash
-git remote add origin https://github.com/Zahidhydri/LMS-App.git
+git clone https://github.com/Zahidhydri/LMS-App.git
+# git remote add origin https://github.com/Zahidhydri/LMS-App.git
 cd LMS-App
 ```
 

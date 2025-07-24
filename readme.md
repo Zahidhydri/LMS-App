@@ -55,7 +55,6 @@ LMS/
 1. Clone the repo
 ```bash
 git clone https://github.com/Zahidhydri/LMS-App.git
-# git remote add origin https://github.com/Zahidhydri/LMS-App.git
 cd LMS-App
 ```
 
@@ -107,3 +106,8 @@ Computer Science Engineering Student | Software Developer
 
 📄 **License**
 This project is licensed under the MIT License.
+
+
+    {% comment %}
+    # git remote add origin https://github.com/Zahidhydri/LMS-App.git
+    {% endcomment %}

@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 h-[65px] md:h-[72px] px-4 md:px-8 bg-[#ffffffd0] dark:bg-[#21242bc5] shadow-custom backdrop-blur-md flex items-center justify-between">
       {/* Left Section: Hamburger + Logo */}
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-8">
         <div></div>
 
         <img

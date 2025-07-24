@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars } from "react-icons/fa";
 
 export default function Navbar() {
   const [darkMode, setDarkMode] = useState(
@@ -23,18 +23,32 @@ export default function Navbar() {
   }, [darkMode]);
 
   return (
-    <nav className="sticky top-0 z-50 md:h-[72px] h-[65px] md:px-[35px] px-[15px] bg-[#ffffffd0] dark:bg-[#21242bc5] shadow-custom backdrop-blur-md flex justify-end">
-      <button className="p-5 rounded-full text-lg font-semibold">
-        {darkMode ? (
-          <FaSun size={26} className="text-white" onClick={toggleDarkMode} />
-        ) : (
-          <FaMoon
-            size={26}
-            className="text-gray-900"
-            onClick={toggleDarkMode}
-          />
-        )}
-      </button>
+    <nav className="sticky top-0 z-50 h-[65px] md:h-[72px] px-4 md:px-8 bg-[#ffffffd0] dark:bg-[#21242bc5] shadow-custom backdrop-blur-md flex items-center justify-between">
+      {/* Left Section: Hamburger + Logo */}
+      <div className="flex items-center gap-5">
+        <div></div>
+
+        <img
+          src="/z.png"
+          alt="Logo"
+          className="h-14 w-auto"
+        />
+      </div>
+
+      {/* Right Section: Dark Mode Toggle */}
+      <div>
+        <button className="p-2 rounded-full">
+          {darkMode ? (
+            <FaSun size={22} className="text-white" onClick={toggleDarkMode} />
+          ) : (
+            <FaMoon
+              size={22}
+              className="text-gray-900"
+              onClick={toggleDarkMode}
+            />
+          )}
+        </button>
+      </div>
     </nav>
   );
 }

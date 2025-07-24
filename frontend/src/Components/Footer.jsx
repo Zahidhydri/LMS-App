@@ -17,6 +17,11 @@ export default function Footer() {
       <div className="grid md:grid-cols-4 gap-10">
         {/* About */}
         <div>
+          <img
+            src="/z.png"
+            alt="Logo"
+            className="h-14 w-auto"
+          />
           <h2 className="text-2xl font-bold text-blue-600 dark:text-yellow-400 mb-3">
             About Us
           </h2>

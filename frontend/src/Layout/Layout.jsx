@@ -3,6 +3,8 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 
+import Certificate from "../components/Certificate"; 
+
 export default function Layout({ children, hideBar, hideNav, hideFooter }) {
   return (
     <>
@@ -15,6 +17,8 @@ export default function Layout({ children, hideBar, hideNav, hideFooter }) {
 
         {/* main content */}
         {children}
+
+        {<Certificate />}
 
         {/* footer */}
         {!hideFooter && <Footer />}

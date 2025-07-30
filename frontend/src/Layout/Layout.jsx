@@ -3,7 +3,7 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 
-import Certificate from "../components/Certificate"; 
+import Certificate from "../Components/Certificate"; 
 
 export default function Layout({ children, hideBar, hideNav, hideFooter }) {
   return (
